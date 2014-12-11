@@ -1,0 +1,148 @@
+/*******************************************************************************
+* @author:marcosptf@yahoo.com.br
+* @since:19/09/2013
+* @desc:definicoes das propriedades usadas no game
+********************************************************************************/
+
+/* estilo dos layouts */
+.layout{
+    border:1px solid #000;
+    width:600px;
+    height:500px;
+    position:relative;
+    top:25px;
+    /* background-image:url('img/bg/bg3.png');
+    background-repeat:no-repeat;
+    background-attachment:fixed; */
+}
+
+.layout1{
+    top:25px;	
+/*    background-image:url('http://127.0.0.1/thewalkingdeadgame-master/public_html/img/bg/bg3.png'); */
+    background-repeat:no-repeat;
+    background-attachment:fixed;
+    height: 500px;
+    width: 600px;
+}	
+
+.layout2{
+    top:25px;
+/*    background-image:url('http://127.0.0.1/thewalkingdeadgame-master/public_html/img/bg/bg1.png'); */
+    background-repeat:no-repeat;
+    background-attachment:fixed;
+    height: 500px;
+    width: 600px;
+}
+
+.pointerCSS{
+    cursor:url(smiley.gif),url(myBall.cur),auto;
+}
+
+#btnInicio{
+    left: 225px;
+    position: relative;
+    top: 305px;
+}
+
+/* estilos das subtelas */
+.subTela1{
+    position:relative;
+    top:0px;
+    border:1px solid #000;
+    width:180px;
+    height:400px;
+}
+.subTela2 {
+    border: 1px solid none;
+    height: 400px;
+    left: 80px;
+    position: relative;
+    top: 5px;
+    width: 415px;
+	color:#fff;
+}
+
+.subTela3{
+    position:relative;
+    border:1px solid none;
+    width:600px;
+    height:98px;
+}
+
+.fasefinal{
+	color:#000;
+}
+
+
+/* estilo da grade 0 */
+.grade0 tbody tr td span img {
+    height: 173px;
+    width: 203px;
+}
+
+.grade0 tbody tr td {
+    height: 188px;
+    width: 205px;
+}
+
+/* estilo da grade 1 */
+.grade1 tbody tr td span img {
+    height: 90px;
+    width: 200px;
+}
+.grade1 tbody tr td{
+    height: 90px;
+    width: 200px;
+}
+
+/* estilo da grade 2 */
+.grade2 tbody tr td span img {
+    height: 90px;
+    width: 100px;
+}
+.grade2 tbody tr td{
+    height: 90px;
+    width: 100px;
+}
+
+/* estilo da grade 3 */
+.grade3 tbody tr td span img {
+    height: 90px;
+    width: 66px;
+}
+.grade3 tbody tr td{
+    height: 90px;
+    width: 66px;
+}
+
+/* estilo da grade 4 */
+.grade4 tbody tr td span img {
+    height: 90px;
+    width: 49px;
+}
+.grade4 tbody tr td{
+    height: 90px;
+    width: 49px;
+}
+
+/* estilo da grade 5 */
+.grade5 tbody tr td span img {
+    height: 15px;
+    width: 39.4px;
+}
+.grade5 tbody tr td{
+    height: 15px;
+    width: 39.4px;
+}
+
+/* estilo da grade 6 */
+.grade6 tbody tr td span img {
+    height: 15px;
+    width: 39.4px;
+}
+.grade6 tbody tr td{
+    height: 15px;
+    width: 39.4px;
+
+}
+
