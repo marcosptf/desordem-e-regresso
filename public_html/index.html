@@ -1,0 +1,2162 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>The Walking Dead :: Puzzle</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link href="css/estilos.css" media="all" rel="stylesheet" type="text/css" />
+        <script src='js/libs/yui-3.3.0/yui-min.js'></script>
+        <script src='js/libs/yui-3.3.0/node-base-min.js'></script>
+        <script src='js/libs/yui-3.3.0/node-core-min.js'></script>
+        <!-- <script src='js/libs/yui-3.3.0/encripterjs.min.js'></script> -->
+        
+        <!-- versão para desenvolvimento -->
+        <script src='js/libs/static.constants.js'></script>
+        <script src='js/libs/carrossel.class.js'></script>
+        <script src='js/libs/game.class.js'></script>
+        <script src='js/libs/action.class.js'></script>
+        <script src='js/bootstrap.js'></script>
+        
+        <!-- versão deploy para produção -->
+       <!-- <script src='js/libs/static.constants.min.js'></script>
+        <script src='js/libs/carrossel.class.min.js'></script>
+        <script src='js/libs/game.class.min.js'></script>
+        <script src='js/libs/action.min.class.js'></script>
+        <script src='js/bootstrap.min.js'></script>-->
+    </head>
+    
+    <body>
+        <div id="divPrincipal" class="">
+
+            <!-- tela abertura  -->
+            <div id="telaInicial" class="">
+                <br/><br/>
+                <a href="javascript:;"><img src="img/zb15.png" id='btnInicio' alt="Matar Zumbis" /></a>
+                <br/><br/>
+            </div>
+
+            <!-- tela inicial do jogo puzzle  -->
+            <div id="tela1" class="" style="display:none;">
+
+                <div class="subTela2" id="subTela2">
+                    <!-- sub tela 2 - subtela do jogo - -->
+					<span id="idFase"></span><span id="idFase2" class="fasefinal"></span>                
+					<br/><br/>
+					<span id="idFase3" class="fasefinal"></span>					
+					
+                    <table border="0" cellspacing="0" cellpadding="0" id="grade0" style="display:none;" class="grade0">
+                        <tr>
+                            <td>
+                                <span id="grade0z1" style="display:none;"><img alt="" src="img/zb1.png" onclick="capturaAcaoJogador(1);" /> </span>
+                                <span id="dead0z1"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade0z2" style="display:none;"><img alt="" src='img/zb2.png' onclick="capturaAcaoJogador(2);" /></span>
+                                <span id="dead0z2" style="display:none;"><img alt="" src='img/zombieDead1.png' /></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span id="grade0z3" style="display:none;"><img alt="" src='img/zb3.png' onclick="capturaAcaoJogador(3);" /></span>
+                                <span id="dead0z3" style="display:none;"><img alt="" src='img/zombieDead1.png' /></span>
+                            </td>
+                            <td>
+                                <span id="grade0z4" style="display:none;"><img alt="" src='img/zb4.png' onclick="capturaAcaoJogador(4);" /></span>
+                                <span id="dead0z4" style="display:none;"><img alt="" src='img/zombieDead1.png' /></span>
+                            </td>
+                        </tr>
+                    </table>
+
+                    <table border="0" cellspacing="0" cellpadding="0" id="grade1" style="display:none;" class="grade1">
+                        <tr>
+                            <td>
+                                <span id="grade1z1" style="display:none;"><img alt="" src='img/zb5.png' onclick="capturaAcaoJogador(1);" /></span>
+                                <span id="dead1z1"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade1z2" style="display:none;"><img alt="" src='img/zb6.png' onclick="capturaAcaoJogador(2);" /></span>
+                                <span id="dead1z2"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span id="grade1z3" style="display:none;"><img alt="" src='img/zb7.png' onclick="capturaAcaoJogador(3);" /></span>
+                                <span id="dead1z3"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade1z4" style="display:none;"><img alt="" src='img/zb8.png' onclick="capturaAcaoJogador(4);" /></span>
+                                <span id="dead1z4"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span id="grade1z5" style="display:none;"><img alt="" src='img/zb9.png' onclick="capturaAcaoJogador(5);" /></span>
+                                <span id="dead1z5"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade1z6" style="display:none;"><img alt="" src='img/zb10.png' onclick="capturaAcaoJogador(6);" /></span>
+                                <span id="dead1z6"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span id="grade1z7" style="display:none;"><img alt="" src='img/zb11.png' onclick="capturaAcaoJogador(7);" /></span>
+                                <span id="dead1z7"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade1z8" style="display:none;"><img alt="" src='img/zb12.png' onclick="capturaAcaoJogador(8);" /></span>
+                                <span id="dead1z8"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                        </tr>
+                    </table>
+
+                    <table border="0" cellspacing="0" cellpadding="0" id="grade2" style="display:none;" class="grade2">
+                        <tr>
+                            <td>
+                                <span id="grade2z1" style="display:none;"><img alt="" src='img/zb13.png' onclick="capturaAcaoJogador(1);" /></span>
+                                <span id="dead2z1"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade2z2" style="display:none;"><img alt="" src='img/zb14.png' onclick="capturaAcaoJogador(2);" /></span>
+                                <span id="dead2z2"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade2z3" style="display:none;"><img alt="" src='img/zb1.png' onclick="capturaAcaoJogador(3);" /></span>
+                                <span id="dead2z3"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade2z4" style="display:none;"><img alt="" src='img/zb2.png' onclick="capturaAcaoJogador(4);" /></span>
+                                <span id="dead2z4"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span id="grade2z5" style="display:none;"><img alt="" src='img/zb3.png' onclick="capturaAcaoJogador(5);" /></span>
+                                <span id="dead2z5"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade2z6" style="display:none;"><img alt="" src='img/zb4.png' onclick="capturaAcaoJogador(6);" /></span>
+                                <span id="dead2z6"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade2z7" style="display:none;"><img alt="" src='img/zb5.png' onclick="capturaAcaoJogador(7);" /></span>
+                                <span id="dead2z7"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade2z8" style="display:none;"><img alt="" src='img/zb6.png' onclick="capturaAcaoJogador(8);" /></span>
+                                <span id="dead2z8"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span id="grade2z9" style="display:none; "><img alt="" src='img/zb7.png' onclick="capturaAcaoJogador(9);" /></span>
+                                <span id="dead2z9"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade2z10" style="display:none;"><img alt="" src='img/zb8.png' onclick="capturaAcaoJogador(10);" /></span>
+                                <span id="dead2z10"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade2z11" style="display:none;"><img alt="" src='img/zb9.png' onclick="capturaAcaoJogador(11);" /></span>
+                                <span id="dead2z11"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade2z12" style="display:none;"><img alt="" src='img/zb10.png' onclick="capturaAcaoJogador(12);" /></span>
+                                <span id="dead2z12"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span id="grade2z13" style="display:none;"><img alt="" src='img/zb11.png' onclick="capturaAcaoJogador(13);" /></span>
+                                <span id="dead2z13"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade2z14" style="display:none;"><img alt="" src='img/zb12.png' onclick="capturaAcaoJogador(14);" /></span>
+                                <span id="dead2z14"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade2z15" style="display:none;"><img alt="" src='img/zb13.png' onclick="capturaAcaoJogador(15);" /></span>
+                                <span id="dead2z15"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade2z16" style="display:none;"><img alt="" src='img/zb14.png' onclick="capturaAcaoJogador(16);" /></span>
+                                <span id="dead2z16"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                        </tr>
+                    </table>
+
+                    <table border="0" cellspacing="0" cellpadding="0" id="grade3" style="display:none;" class="grade3">
+                        <tr>
+                            <td>
+                                <span id="grade3z1" style="display:none;"><img alt="" src='img/zb1.png' onclick="capturaAcaoJogador(1);" /></span>
+                                <span id="dead3z1"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade3z2" style="display:none;"><img alt="" src='img/zb2.png' onclick="capturaAcaoJogador(2);" /></span>
+                                <span id="dead3z2"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade3z3" style="display:none;"><img alt="" src='img/zb3.png' onclick="capturaAcaoJogador(3);" /></span>
+                                <span id="dead3z3"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade3z4" style="display:none;"><img alt="" src='img/zb4.png' onclick="capturaAcaoJogador(4);" /></span>
+                                <span id="dead3z4"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade3z5" style="display:none;"><img alt="" src='img/zb5.png' onclick="capturaAcaoJogador(5);" /></span>
+                                <span id="dead3z5"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade3z6" style="display:none;"><img alt="" src='img/zb6.png' onclick="capturaAcaoJogador(6);" /></span>
+                                <span id="dead3z6"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span id="grade3z7" style="display:none;"><img alt="" src='img/zb7.png' onclick="capturaAcaoJogador(7);" /></span>
+                                <span id="dead3z7"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade3z8" style="display:none;"><img alt="" src='img/zb8.png' onclick="capturaAcaoJogador(8);" /></span>
+                                <span id="dead3z8"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade3z9" style="display:none;"><img alt="" src='img/zb9.png' onclick="capturaAcaoJogador(9);" /></span>
+                                <span id="dead3z9"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade3z10" style="display:none;"><img alt="" src='img/zb10.png' onclick="capturaAcaoJogador(10);" /></span>
+                                <span id="dead3z10"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade3z11" style="display:none;"><img alt="" src='img/zb11.png' onclick="capturaAcaoJogador(11);" /></span>
+                                <span id="dead3z11"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade3z12" style="display:none;"><img alt="" src='img/zb12.png' onclick="capturaAcaoJogador(12);" /></span>
+                                <span id="dead3z12"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span id="grade3z13" style="display:none;"><img alt="" src='img/zb13.png' onclick="capturaAcaoJogador(13);" /></span>
+                                <span id="dead3z13"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade3z14" style="display:none;"><img alt="" src='img/zb14.png' onclick="capturaAcaoJogador(14);" /></span>
+                                <span id="dead3z14"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade3z15" style="display:none;"><img alt="" src='img/zb1.png' onclick="capturaAcaoJogador(15);" /></span>
+                                <span id="dead3z15"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade3z16" style="display:none;"><img alt="" src='img/zb2.png' onclick="capturaAcaoJogador(16);" /></span>
+                                <span id="dead3z16"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade3z17" style="display:none;"><img alt="" src='img/zb3.png' onclick="capturaAcaoJogador(17);" /></span>
+                                <span id="dead3z17"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade3z18" style="display:none;"><img alt="" src='img/zb4.png' onclick="capturaAcaoJogador(18);" /></span>
+                                <span id="dead3z18"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span id="grade3z19" style="display:none;"><img alt="" src='img/zb5.png' onclick="capturaAcaoJogador(19);" /></span>
+                                <span id="dead3z19"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade3z20" style="display:none;"><img alt="" src='img/zb6.png' onclick="capturaAcaoJogador(20);" /></span>
+                                <span id="dead3z20"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade3z21" style="display:none;"><img alt="" src='img/zb7.png' onclick="capturaAcaoJogador(21);" /></span>
+                                <span id="dead3z21"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade3z22" style="display:none;"><img alt="" src='img/zb8.png' onclick="capturaAcaoJogador(22);" /></span>
+                                <span id="dead3z22"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade3z23" style="display:none;"><img alt="" src='img/zb9.png' onclick="capturaAcaoJogador(23);" /></span>
+                                <span id="dead3z23"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade3z24" style="display:none;"><img alt="" src='img/zb10.png' onclick="capturaAcaoJogador(24);" /></span>
+                                <span id="dead3z24"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                        </tr>
+                    </table>
+
+                    <table border="0" cellspacing="0" cellpadding="0" id="grade4" style="display:none;" class="grade4">
+                        <tr>
+                            <td>
+                                <span id="grade4z1" style="display:none;"><img alt="" src='img/zb11.png' onclick="capturaAcaoJogador(1);" /></span>
+                                <span id="dead4z1"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade4z2" style="display:none;"><img alt="" src='img/zb12.png' onclick="capturaAcaoJogador(2);" /></span>
+                                <span id="dead4z2"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade4z3" style="display:none;"><img alt="" src='img/zb13.png' onclick="capturaAcaoJogador(3);" /></span>
+                                <span id="dead4z3"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade4z4" style="display:none;"><img alt="" src='img/zb14.png' onclick="capturaAcaoJogador(4);" /></span>
+                                <span id="dead4z4"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade4z5" style="display:none;"><img alt="" src='img/zb1.png' onclick="capturaAcaoJogador(5);" /></span>
+                                <span id="dead4z5"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade4z6" style="display:none;"><img alt="" src='img/zb2.png' onclick="capturaAcaoJogador(6);" /></span>
+                                <span id="dead4z6"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade4z7" style="display:none;"><img alt="" src='img/zb3.png' onclick="capturaAcaoJogador(7);" /></span>
+                                <span id="dead4z7"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade4z8" style="display:none;"><img alt="" src='img/zb4.png' onclick="capturaAcaoJogador(8);" /></span>
+                                <span id="dead4z8"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span id="grade4z9" style="display:none;"><img alt="" src='img/zb5.png' onclick="capturaAcaoJogador(9);" /></span>
+                                <span id="dead4z9"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade4z10" style="display:none;"><img alt="" src='img/zb7.png' onclick="capturaAcaoJogador(10);" /></span>
+                                <span id="dead4z10"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade4z11" style="display:none;"><img alt="" src='img/zb8.png' onclick="capturaAcaoJogador(11);" /></span>
+                                <span id="dead4z11"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade4z12" style="display:none;"><img alt="" src='img/zb9.png' onclick="capturaAcaoJogador(12);" /></span>
+                                <span id="dead4z12"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade4z13" style="display:none;"><img alt="" src='img/zb10.png' onclick="capturaAcaoJogador(13);" /></span>
+                                <span id="dead4z13"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade4z14" style="display:none;"><img alt="" src='img/zb11.png' onclick="capturaAcaoJogador(14);" /></span>
+                                <span id="dead4z14"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade4z15" style="display:none;"><img alt="" src='img/zb12.png' onclick="capturaAcaoJogador(15);" /></span>
+                                <span id="dead4z15"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade4z16" style="display:none;"><img alt="" src='img/zb13.png' onclick="capturaAcaoJogador(16);" /></span>
+                                <span id="dead4z16"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span id="grade4z17" style="display:none;"><img alt="" src='img/zb14.png' onclick="capturaAcaoJogador(17);" /></span>
+                                <span id="dead4z17"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade4z18" style="display:none;"><img alt="" src='img/zb1.png' onclick="capturaAcaoJogador(18);" /></span>
+                                <span id="dead4z18"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade4z19" style="display:none;"><img alt="" src='img/zb2.png' onclick="capturaAcaoJogador(19);" /></span>
+                                <span id="dead4z19"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade4z20" style="display:none;"><img alt="" src='img/zb3.png' onclick="capturaAcaoJogador(20);" /></span>
+                                <span id="dead4z20"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade4z21" style="display:none;"><img alt="" src='img/zb4.png' onclick="capturaAcaoJogador(21);" /></span>
+                                <span id="dead4z21"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade4z22" style="display:none;"><img alt="" src='img/zb5.png' onclick="capturaAcaoJogador(22);" /></span>
+                                <span id="dead4z22"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade4z23" style="display:none;"><img alt="" src='img/zb6.png' onclick="capturaAcaoJogador(23);" /></span>
+                                <span id="dead4z23"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade4z24" style="display:none;"><img alt="" src='img/zb7.png' onclick="capturaAcaoJogador(24);" /></span>
+                                <span id="dead4z24"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span id="grade4z25" style="display:none;"><img alt="" src='img/zb8.png' onclick="capturaAcaoJogador(25);" /></span>
+                                <span id="dead4z25"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade4z26" style="display:none;"><img alt="" src='img/zb9.png' onclick="capturaAcaoJogador(26);" /></span>
+                                <span id="dead4z26"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade4z27" style="display:none;"><img alt="" src='img/zb10.png' onclick="capturaAcaoJogador(27);" /></span>
+                                <span id="dead4z27"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade4z28" style="display:none;"><img alt="" src='img/zb11.png' onclick="capturaAcaoJogador(28);" /></span>
+                                <span id="dead4z28"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade4z29" style="display:none;"><img alt="" src='img/zb12.png' onclick="capturaAcaoJogador(29);" /></span>
+                                <span id="dead4z29"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade4z30" style="display:none;"><img alt="" src='img/zb13.png' onclick="capturaAcaoJogador(30);" /></span>
+                                <span id="dead4z30"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade4z31" style="display:none;"><img alt="" src='img/zb14.png' onclick="capturaAcaoJogador(31);" /></span>
+                                <span id="dead4z31"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade4z32" style="display:none;"><img alt="" src='img/zb1.png' onclick="capturaAcaoJogador(32);" /></span>
+                                <span id="dead4z32"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                        </tr>
+                    </table>
+
+
+
+                    <table border="0" cellspacing="0" cellpadding="0" id="grade5" style="display:none;" class="grade5">
+                        <tr>
+                            <td>
+                                <span id="grade5z1" style="display:none;"><img alt="" src='img/zb2.png' onclick="capturaAcaoJogador(1);" /></span>
+                                <span id="dead5z1"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z2" style="display:none;"><img alt="" src='img/zb3.png' onclick="capturaAcaoJogador(2);" /></span>
+                                <span id="dead5z2"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z3" style="display:none;"><img alt="" src='img/zb4.png' onclick="capturaAcaoJogador(3);" /></span>
+                                <span id="dead5z3"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z4" style="display:none;"><img alt="" src='img/zb5.png' onclick="capturaAcaoJogador(4);" /></span>
+                                <span id="dead5z4"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z5" style="display:none;"><img alt="" src='img/zb6.png' onclick="capturaAcaoJogador(5);" /></span>
+                                <span id="dead5z5"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z6" style="display:none;"><img alt="" src='img/zb7.png' onclick="capturaAcaoJogador(6);" /></span>
+                                <span id="dead5z6"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z7" style="display:none;"><img alt="" src='img/zb8.png' onclick="capturaAcaoJogador(7);" /></span>
+                                <span id="dead5z7"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z8" style="display:none;"><img alt="" src='img/zb9.png' onclick="capturaAcaoJogador(8);" /></span>
+                                <span id="dead5z8"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z9" style="display:none;"><img alt="" src='img/zb10.png' onclick="capturaAcaoJogador(9);" /></span>
+                                <span id="dead5z9"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z10" style="display:none;"><img alt="" src='img/zb11.png' onclick="capturaAcaoJogador(10);" /></span>
+                                <span id="dead5z10"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span id="grade5z11" style="display:none;"><img alt="" src='img/zb12.png' onclick="capturaAcaoJogador(11);" /></span>
+                                <span id="dead5z11"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z12" style="display:none;"><img alt="" src='img/zb13.png' onclick="capturaAcaoJogador(12);" /></span>
+                                <span id="dead5z12"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z13" style="display:none;"><img alt="" src='img/zb14.png' onclick="capturaAcaoJogador(13);" /></span>
+                                <span id="dead5z13"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z14" style="display:none;"><img alt="" src='img/zb1.png' onclick="capturaAcaoJogador(14);" /></span>
+                                <span id="dead5z14"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z15" style="display:none;"><img alt="" src='img/zb2.png' onclick="capturaAcaoJogador(15);" /></span>
+                                <span id="dead5z15"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z16" style="display:none;"><img alt="" src='img/zb3.png' onclick="capturaAcaoJogador(16);" /></span>
+                                <span id="dead5z16"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z17" style="display:none;"><img alt="" src='img/zb4.png' onclick="capturaAcaoJogador(17);" /></span>
+                                <span id="dead5z17"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z18" style="display:none;"><img alt="" src='img/zb5.png' onclick="capturaAcaoJogador(18);" /></span>
+                                <span id="dead5z18"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z19" style="display:none;"><img alt="" src='img/zb6.png' onclick="capturaAcaoJogador(19);" /></span>
+                                <span id="dead5z19"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z20" style="display:none;"><img alt="" src='img/zb7.png' onclick="capturaAcaoJogador(20);" /></span>
+                                <span id="dead5z20"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span id="grade5z21" style="display:none;"><img alt="" src='img/zb8.png' onclick="capturaAcaoJogador(21);" /></span>
+                                <span id="dead5z21"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z22" style="display:none;"><img alt="" src='img/zb9.png' onclick="capturaAcaoJogador(22);" /></span>
+                                <span id="dead5z22"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z23" style="display:none;"><img alt="" src='img/zb10.png' onclick="capturaAcaoJogador(23);" /></span>
+                                <span id="dead5z23"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z24" style="display:none;"><img alt="" src='img/zb11.png' onclick="capturaAcaoJogador(24);" /></span>
+                                <span id="dead5z24"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z25" style="display:none;"><img alt="" src='img/zb12.png' onclick="capturaAcaoJogador(25);" /></span>
+                                <span id="dead5z25"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z26" style="display:none;"><img alt="" src='img/zb13.png' onclick="capturaAcaoJogador(26);" /></span>
+                                <span id="dead5z26"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z27" style="display:none;"><img alt="" src='img/zb14.png' onclick="capturaAcaoJogador(27);" /></span>
+                                <span id="dead5z27"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z28" style="display:none;"><img alt="" src='img/zb1.png' onclick="capturaAcaoJogador(28);" /></span>
+                                <span id="dead5z28"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z29" style="display:none;"><img alt="" src='img/zb2.png' onclick="capturaAcaoJogador(29);" /></span>
+                                <span id="dead5z29"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z30" style="display:none;"><img alt="" src='img/zb3.png' onclick="capturaAcaoJogador(30);" /></span>
+                                <span id="dead5z30"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span id="grade5z31" style="display:none;"><img alt="" src='img/zb4.png' onclick="capturaAcaoJogador(31);" /></span>
+                                <span id="dead5z31"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z32" style="display:none;"><img alt="" src='img/zb5.png' onclick="capturaAcaoJogador(32);" /></span>
+                                <span id="dead5z32"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z33" style="display:none;"><img alt="" src='img/zb6.png' onclick="capturaAcaoJogador(33);" /></span>
+                                <span id="dead5z33"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z34" style="display:none;"><img alt="" src='img/zb7.png' onclick="capturaAcaoJogador(34);" /></span>
+                                <span id="dead5z34"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z35" style="display:none;"><img alt="" src='img/zb8.png' onclick="capturaAcaoJogador(35);" /></span>
+                                <span id="dead5z35"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z36" style="display:none;"><img alt="" src='img/zb9.png' onclick="capturaAcaoJogador(36);" /></span>
+                                <span id="dead5z36"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z37" style="display:none;"><img alt="" src='img/zb10.png' onclick="capturaAcaoJogador(37);" /></span>
+                                <span id="dead5z37"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z38" style="display:none;"><img alt="" src='img/zb11.png' onclick="capturaAcaoJogador(38);" /></span>
+                                <span id="dead5z38"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z39" style="display:none;"><img alt="" src='img/zb12.png' onclick="capturaAcaoJogador(39);" /></span>
+                                <span id="dead5z39"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z40" style="display:none;"><img alt="" src='img/zb13.png' onclick="capturaAcaoJogador(40);" /></span>
+                                <span id="dead5z40"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <span id="grade5z41" style="display:none;"><img alt="" src='img/zb14.png' onclick="capturaAcaoJogador(41);" /></span>
+                                <span id="dead5z41"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z42" style="display:none;"><img alt="" src='img/zb1.png' onclick="capturaAcaoJogador(42);" /></span>
+                                <span id="dead5z42"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z43" style="display:none;"><img alt="" src='img/zb2.png' onclick="capturaAcaoJogador(43);" /></span>
+                                <span id="dead5z43"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z44" style="display:none;"><img alt="" src='img/zb3.png' onclick="capturaAcaoJogador(44);" /></span>
+                                <span id="dead5z44"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z45" style="display:none;"><img alt="" src='img/zb4.png' onclick="capturaAcaoJogador(45);" /></span>
+                                <span id="dead5z45"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z46" style="display:none;"><img alt="" src='img/zb5.png' onclick="capturaAcaoJogador(46);" /></span>
+                                <span id="dead5z46"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z47" style="display:none;"><img alt="" src='img/zb6.png' onclick="capturaAcaoJogador(47);" /></span>
+                                <span id="dead5z47"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z48" style="display:none;"><img alt="" src='img/zb7.png' onclick="capturaAcaoJogador(48);" /></span>
+                                <span id="dead5z48"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z49" style="display:none;"><img alt="" src='img/zb8.png' onclick="capturaAcaoJogador(49);" /></span>
+                                <span id="dead5z49"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z50" style="display:none;"><img alt="" src='img/zb9.png' onclick="capturaAcaoJogador(50);" /></span>
+                                <span id="dead5z50"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                        </tr>
+
+
+                        <tr>
+                            <td>
+                                <span id="grade5z51" style="display:none;"><img alt="" src='img/zb10.png' onclick="capturaAcaoJogador(51);" /></span>
+                                <span id="dead5z51"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z52" style="display:none;"><img alt="" src='img/zb11.png' onclick="capturaAcaoJogador(52);" /></span>
+                                <span id="dead5z52"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z53" style="display:none;"><img alt="" src='img/zb12.png' onclick="capturaAcaoJogador(53);" /></span>
+                                <span id="dead5z53"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z54" style="display:none;"><img alt="" src='img/zb13.png' onclick="capturaAcaoJogador(54);" /></span>
+                                <span id="dead5z54"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z55" style="display:none;"><img alt="" src='img/zb14.png' onclick="capturaAcaoJogador(55);" /></span>
+                                <span id="dead5z55"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z56" style="display:none;"><img alt="" src='img/zb1.png' onclick="capturaAcaoJogador(56);" /></span>
+                                <span id="dead5z56"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z57" style="display:none;"><img alt="" src='img/zb2.png' onclick="capturaAcaoJogador(57);" /></span>
+                                <span id="dead5z57"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z58" style="display:none;"><img alt="" src='img/zb3.png' onclick="capturaAcaoJogador(58);" /></span>
+                                <span id="dead5z58"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z59" style="display:none;"><img alt="" src='img/zb4.png' onclick="capturaAcaoJogador(59);" /></span>
+                                <span id="dead5z59"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z60" style="display:none;"><img alt="" src='img/zb5.png' onclick="capturaAcaoJogador(60);" /></span>
+                                <span id="dead5z60"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span id="grade5z61" style="display:none;"><img alt="" src='img/zb6.png' onclick="capturaAcaoJogador(61);" /></span>
+                                <span id="dead5z61"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z62" style="display:none;"><img alt="" src='img/zb7.png' onclick="capturaAcaoJogador(62);" /></span>
+                                <span id="dead5z62"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z63" style="display:none;"><img alt="" src='img/zb8.png' onclick="capturaAcaoJogador(63);" /></span>
+                                <span id="dead5z63"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z64" style="display:none;"><img alt="" src='img/zb9.png' onclick="capturaAcaoJogador(64);" /></span>
+                                <span id="dead5z64"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z65" style="display:none;"><img alt="" src='img/zb10.png' onclick="capturaAcaoJogador(65);" /></span>
+                                <span id="dead5z65"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z66" style="display:none;"><img alt="" src='img/zb11.png' onclick="capturaAcaoJogador(66);" /></span>
+                                <span id="dead5z66"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z67" style="display:none;"><img alt="" src='img/zb12.png' onclick="capturaAcaoJogador(67);" /></span>
+                                <span id="dead5z67"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z68" style="display:none;"><img alt="" src='img/zb13.png' onclick="capturaAcaoJogador(68);" /></span>
+                                <span id="dead5z68"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z69" style="display:none;"><img alt="" src='img/zb14.png' onclick="capturaAcaoJogador(69);" /></span>
+                                <span id="dead5z69"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z70" style="display:none;"><img alt="" src='img/zb1.png' onclick="capturaAcaoJogador(70);" /></span>
+                                <span id="dead5z70"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <span id="grade5z71" style="display:none;"><img alt="" src='img/zb2.png' onclick="capturaAcaoJogador(71);" /></span>
+                                <span id="dead5z71"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z72" style="display:none;"><img alt="" src='img/zb3.png' onclick="capturaAcaoJogador(72);" /></span>
+                                <span id="dead5z72"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z73" style="display:none;"><img alt="" src='img/zb4.png' onclick="capturaAcaoJogador(73);" /></span>
+                                <span id="dead5z73"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z74" style="display:none;"><img alt="" src='img/zb5.png' onclick="capturaAcaoJogador(74);" /></span>
+                                <span id="dead5z74"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z75" style="display:none;"><img alt="" src='img/zb6.png' onclick="capturaAcaoJogador(75);" /></span>
+                                <span id="dead5z75"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z76" style="display:none;"><img alt="" src='img/zb7.png' onclick="capturaAcaoJogador(76);" /></span>
+                                <span id="dead5z76"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z77" style="display:none;"><img alt="" src='img/zb8.png' onclick="capturaAcaoJogador(77);" /></span>
+                                <span id="dead5z77"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z78" style="display:none;"><img alt="" src='img/zb9.png' onclick="capturaAcaoJogador(78);" /></span>
+                                <span id="dead5z78"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z79" style="display:none;"><img alt="" src='img/zb10.png' onclick="capturaAcaoJogador(79);" /></span>
+                                <span id="dead5z79"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z80" style="display:none;"><img alt="" src='img/zb11.png' onclick="capturaAcaoJogador(80);" /></span>
+                                <span id="dead5z80"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span id="grade5z81" style="display:none;"><img alt="" src='img/zb12.png' onclick="capturaAcaoJogador(81);" /></span>
+                                <span id="dead5z81"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z82" style="display:none;"><img alt="" src='img/zb13.png' onclick="capturaAcaoJogador(82);" /></span>
+                                <span id="dead5z82"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z83" style="display:none;"><img alt="" src='img/zb14.png' onclick="capturaAcaoJogador(83);" /></span>
+                                <span id="dead5z83"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z84" style="display:none;"><img alt="" src='img/zb1.png' onclick="capturaAcaoJogador(84);" /></span>
+                                <span id="dead5z84"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z85" style="display:none;"><img alt="" src='img/zb1.png' onclick="capturaAcaoJogador(85);" /></span>
+                                <span id="dead5z85"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z86" style="display:none;"><img alt="" src='img/zb2.png' onclick="capturaAcaoJogador(86);" /></span>
+                                <span id="dead5z86"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z87" style="display:none;"><img alt="" src='img/zb3.png' onclick="capturaAcaoJogador(87);" /></span>
+                                <span id="dead5z87"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z88" style="display:none;"><img alt="" src='img/zb4.png' onclick="capturaAcaoJogador(88);" /></span>
+                                <span id="dead5z88"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z89" style="display:none;"><img alt="" src='img/zb5.png' onclick="capturaAcaoJogador(89);" /></span>
+                                <span id="dead5z89"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z90" style="display:none;"><img alt="" src='img/zb6.png' onclick="capturaAcaoJogador(90);" /></span>
+                                <span id="dead5z90"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <span id="grade5z91" style="display:none;"><img alt="" src='img/zb7.png' onclick="capturaAcaoJogador(91);" /></span>
+                                <span id="dead5z91"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z92" style="display:none;"><img alt="" src='img/zb8.png' onclick="capturaAcaoJogador(92);" /></span>
+                                <span id="dead5z92"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z93" style="display:none;"><img alt="" src='img/zb9.png' onclick="capturaAcaoJogador(93);" /></span>
+                                <span id="dead5z93"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z94" style="display:none;"><img alt="" src='img/zb10.png' onclick="capturaAcaoJogador(94);" /></span>
+                                <span id="dead5z94"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z95" style="display:none;"><img alt="" src='img/zb11.png' onclick="capturaAcaoJogador(95);" /></span>
+                                <span id="dead5z95"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z96" style="display:none;"><img alt="" src='img/zb12.png' onclick="capturaAcaoJogador(96);" /></span>
+                                <span id="dead5z96"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z97" style="display:none;"><img alt="" src='img/zb13.png' onclick="capturaAcaoJogador(97);" /></span>
+                                <span id="dead5z97"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z98" style="display:none;"><img alt="" src='img/zb14.png' onclick="capturaAcaoJogador(98);" /></span>
+                                <span id="dead5z98"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z99" style="display:none;"><img alt="" src='img/zb1.png' onclick="capturaAcaoJogador(99);" /></span>
+                                <span id="dead5z99"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z100" style="display:none;"><img alt="" src='img/zb2.png' onclick="capturaAcaoJogador(100);" /></span>
+                                <span id="dead5z100"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <span id="grade5z101" style="display:none;"><img alt="" src='img/zb3.png' onclick="capturaAcaoJogador(101);" /></span>
+                                <span id="dead5z101"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z102" style="display:none;"><img alt="" src='img/zb4.png' onclick="capturaAcaoJogador(102);" /></span>
+                                <span id="dead5z102"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z103" style="display:none;"><img alt="" src='img/zb5.png' onclick="capturaAcaoJogador(103);" /></span>
+                                <span id="dead5z103"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z104" style="display:none;"><img alt="" src='img/zb6.png' onclick="capturaAcaoJogador(104);" /></span>
+                                <span id="dead5z104"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z105" style="display:none;"><img alt="" src='img/zb7.png' onclick="capturaAcaoJogador(105);" /></span>
+                                <span id="dead5z105"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z106" style="display:none;"><img alt="" src='img/zb8.png' onclick="capturaAcaoJogador(106);" /></span>
+                                <span id="dead5z106"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z107" style="display:none;"><img alt="" src='img/zb9.png' onclick="capturaAcaoJogador(107);" /></span>
+                                <span id="dead5z107"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z108" style="display:none;"><img alt="" src='img/zb10.png' onclick="capturaAcaoJogador(108);" /></span>
+                                <span id="dead5z108"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z109" style="display:none;"><img alt="" src='img/zb11.png' onclick="capturaAcaoJogador(109);" /></span>
+                                <span id="dead5z109"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z110" style="display:none;"><img alt="" src='img/zb12.png' onclick="capturaAcaoJogador(110);" /></span>
+                                <span id="dead5z110"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <span id="grade5z111" style="display:none;"><img alt="" src='img/zb13.png' onclick="capturaAcaoJogador(111);" /></span>
+                                <span id="dead5z111"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z112" style="display:none;"><img alt="" src='img/zb14.png' onclick="capturaAcaoJogador(112);" /></span>
+                                <span id="dead5z112"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z113" style="display:none;"><img alt="" src='img/zb1.png' onclick="capturaAcaoJogador(113);" /></span>
+                                <span id="dead5z113"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z114" style="display:none;"><img alt="" src='img/zb2.png' onclick="capturaAcaoJogador(114);" /></span>
+                                <span id="dead5z114"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z115" style="display:none;"><img alt="" src='img/zb3.png' onclick="capturaAcaoJogador(115);" /></span>
+                                <span id="dead5z115"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z116" style="display:none;"><img alt="" src='img/zb4.png' onclick="capturaAcaoJogador(116);" /></span>
+                                <span id="dead5z116"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z117" style="display:none;"><img alt="" src='img/zb5.png' onclick="capturaAcaoJogador(117);" /></span>
+                                <span id="dead5z117"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z118" style="display:none;"><img alt="" src='img/zb6.png' onclick="capturaAcaoJogador(118);" /></span>
+                                <span id="dead5z118"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z119" style="display:none;"><img alt="" src='img/zb7.png' onclick="capturaAcaoJogador(119);" /></span>
+                                <span id="dead5z119"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z120" style="display:none;"><img alt="" src='img/zb8.png' onclick="capturaAcaoJogador(120);" /></span>
+                                <span id="dead5z120"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                        </tr>
+
+
+                        <tr>
+                            <td>
+                                <span id="grade5z121" style="display:none;"><img alt="" src='img/zb9.png' onclick="capturaAcaoJogador(121);" /></span>
+                                <span id="dead5z121"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z122" style="display:none;"><img alt="" src='img/zb10.png' onclick="capturaAcaoJogador(122);" /></span>
+                                <span id="dead5z122"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z123" style="display:none;"><img alt="" src='img/zb11.png' onclick="capturaAcaoJogador(123);" /></span>
+                                <span id="dead5z123"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z124" style="display:none;"><img alt="" src='img/zb12.png' onclick="capturaAcaoJogador(124);" /></span>
+                                <span id="dead5z124"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z125" style="display:none;"><img alt="" src='img/zb13.png' onclick="capturaAcaoJogador(125);" /></span>
+                                <span id="dead5z125"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z126" style="display:none;"><img alt="" src='img/zb14.png' onclick="capturaAcaoJogador(126);" /></span>
+                                <span id="dead5z126"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z127" style="display:none;"><img alt="" src='img/zb1.png' onclick="capturaAcaoJogador(127);" /></span>
+                                <span id="dead5z127"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z128" style="display:none;"><img alt="" src='img/zb2.png' onclick="capturaAcaoJogador(128);" /></span>
+                                <span id="dead5z128"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z129" style="display:none;"><img alt="" src='img/zb3.png' onclick="capturaAcaoJogador(129);" /></span>
+                                <span id="dead5z129"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z130" style="display:none;"><img alt="" src='img/zb4.png' onclick="capturaAcaoJogador(130);" /></span>
+                                <span id="dead5z130"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                        </tr>
+
+
+                        <tr>
+                            <td>
+                                <span id="grade5z131" style="display:none;"><img alt="" src='img/zb5.png' onclick="capturaAcaoJogador(131);" /></span>
+                                <span id="dead5z131"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z132" style="display:none;"><img alt="" src='img/zb6.png' onclick="capturaAcaoJogador(132);" /></span>
+                                <span id="dead5z132"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z133" style="display:none;"><img alt="" src='img/zb7.png' onclick="capturaAcaoJogador(133);" /></span>
+                                <span id="dead5z133"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z134" style="display:none;"><img alt="" src='img/zb8.png' onclick="capturaAcaoJogador(134);" /></span>
+                                <span id="dead5z134"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z135" style="display:none;"><img alt="" src='img/zb9.png' onclick="capturaAcaoJogador(135);" /></span>
+                                <span id="dead5z135"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z136" style="display:none;"><img alt="" src='img/zb10.png' onclick="capturaAcaoJogador(136);" /></span>
+                                <span id="dead5z136"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z137" style="display:none;"><img alt="" src='img/zb11.png' onclick="capturaAcaoJogador(137);" /></span>
+                                <span id="dead5z137"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z138" style="display:none;"><img alt="" src='img/zb12.png' onclick="capturaAcaoJogador(138);" /></span>
+                                <span id="dead5z138"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z139" style="display:none;"><img alt="" src='img/zb13.png' onclick="capturaAcaoJogador(139);" /></span>
+                                <span id="dead5z139"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z140" style="display:none;"><img alt="" src='img/zb14.png' onclick="capturaAcaoJogador(140);" /></span>
+                                <span id="dead5z140"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <span id="grade5z141" style="display:none;"><img alt="" src='img/zb1.png' onclick="capturaAcaoJogador(141);" /></span>
+                                <span id="dead5z141"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z142" style="display:none;"><img alt="" src='img/zb2.png' onclick="capturaAcaoJogador(142);" /></span>
+                                <span id="dead5z142"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z143" style="display:none;"><img alt="" src='img/zb3.png' onclick="capturaAcaoJogador(143);" /></span>
+                                <span id="dead5z143"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z144" style="display:none;"><img alt="" src='img/zb4.png' onclick="capturaAcaoJogador(144);" /></span>
+                                <span id="dead5z144"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z145" style="display:none;"><img alt="" src='img/zb5.png' onclick="capturaAcaoJogador(145);" /></span>
+                                <span id="dead5z145"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z146" style="display:none;"><img alt="" src='img/zb6.png' onclick="capturaAcaoJogador(146);" /></span>
+                                <span id="dead5z146"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z147" style="display:none;"><img alt="" src='img/zb7.png' onclick="capturaAcaoJogador(147);" /></span>
+                                <span id="dead5z147"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z148" style="display:none;"><img alt="" src='img/zb8.png' onclick="capturaAcaoJogador(148);" /></span>
+                                <span id="dead5z148"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z149" style="display:none;"><img alt="" src='img/zb9.png' onclick="capturaAcaoJogador(149);" /></span>
+                                <span id="dead5z149"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z150" style="display:none;"><img alt="" src='img/zb10.png' onclick="capturaAcaoJogador(150);" /></span>
+                                <span id="dead5z150"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span id="grade5z151" style="display:none;"><img alt="" src='img/zb11.png' onclick="capturaAcaoJogador(151);" /></span>
+                                <span id="dead5z151"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z152" style="display:none;"><img alt="" src='img/zb12.png' onclick="capturaAcaoJogador(152);" /></span>
+                                <span id="dead5z152"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z153" style="display:none;"><img alt="" src='img/zb13.png' onclick="capturaAcaoJogador(153);" /></span>
+                                <span id="dead5z153"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z154" style="display:none;"><img alt="" src='img/zb14.png' onclick="capturaAcaoJogador(154);" /></span>
+                                <span id="dead5z154"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z155" style="display:none;"><img alt="" src='img/zb1.png' onclick="capturaAcaoJogador(155);" /></span>
+                                <span id="dead5z155"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z156" style="display:none;"><img alt="" src='img/zb2.png' onclick="capturaAcaoJogador(156);" /></span>
+                                <span id="dead5z156"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z157" style="display:none;"><img alt="" src='img/zb3.png' onclick="capturaAcaoJogador(157);" /></span>
+                                <span id="dead5z157"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z158" style="display:none;"><img alt="" src='img/zb4.png' onclick="capturaAcaoJogador(158);" /></span>
+                                <span id="dead5z158"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z159" style="display:none;"><img alt="" src='img/zb5.png' onclick="capturaAcaoJogador(159);" /></span>
+                                <span id="dead5z159"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z160" style="display:none;"><img alt="" src='img/zb6.png' onclick="capturaAcaoJogador(160);" /></span>
+                                <span id="dead5z160"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span id="grade5z161" style="display:none;"><img alt="" src='img/zb7.png' onclick="capturaAcaoJogador(161);" /></span>
+                                <span id="dead5z161"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z162" style="display:none;"><img alt="" src='img/zb8.png' onclick="capturaAcaoJogador(162);" /></span>
+                                <span id="dead5z162"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z163" style="display:none;"><img alt="" src='img/zb9.png' onclick="capturaAcaoJogador(163);" /></span>
+                                <span id="dead5z163"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z164" style="display:none;"><img alt="" src='img/zb10.png' onclick="capturaAcaoJogador(164);" /></span>
+                                <span id="dead5z164"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z165" style="display:none;"><img alt="" src='img/zb11.png' onclick="capturaAcaoJogador(165);" /></span>
+                                <span id="dead5z165"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z166" style="display:none;"><img alt="" src='img/zb12.png' onclick="capturaAcaoJogador(166);" /></span>
+                                <span id="dead5z166"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z167" style="display:none;"><img alt="" src='img/zb13.png' onclick="capturaAcaoJogador(167);" /></span>
+                                <span id="dead5z167"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z168" style="display:none;"><img alt="" src='img/zb14.png' onclick="capturaAcaoJogador(168);" /></span>
+                                <span id="dead5z168"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z169" style="display:none;"><img alt="" src='img/zb1.png' onclick="capturaAcaoJogador(169);" /></span>
+                                <span id="dead5z169"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z170" style="display:none;"><img alt="" src='img/zb2.png' onclick="capturaAcaoJogador(170);" /></span>
+                                <span id="dead5z170"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span id="grade5z171" style="display:none;"><img alt="" src='img/zb3.png' onclick="capturaAcaoJogador(171);" /></span>
+                                <span id="dead5z171"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z172" style="display:none;"><img alt="" src='img/zb4.png' onclick="capturaAcaoJogador(172);" /></span>
+                                <span id="dead5z172"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z173" style="display:none;"><img alt="" src='img/zb5.png' onclick="capturaAcaoJogador(173);" /></span>
+                                <span id="dead5z173"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z174" style="display:none;"><img alt="" src='img/zb6.png' onclick="capturaAcaoJogador(174);" /></span>
+                                <span id="dead5z174"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z175" style="display:none;"><img alt="" src='img/zb7.png' onclick="capturaAcaoJogador(175);" /></span>
+                                <span id="dead5z175"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z176" style="display:none;"><img alt="" src='img/zb8.png' onclick="capturaAcaoJogador(176);" /></span>
+                                <span id="dead5z176"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z177" style="display:none;"><img alt="" src='img/zb9.png' onclick="capturaAcaoJogador(177);" /></span>
+                                <span id="dead5z177"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z178" style="display:none;"><img alt="" src='img/zb10.png' onclick="capturaAcaoJogador(178);" /></span>
+                                <span id="dead5z178"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z179" style="display:none;"><img alt="" src='img/zb12.png' onclick="capturaAcaoJogador(179);" /></span>
+                                <span id="dead5z179"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="grade5z180" style="display:none;"><img alt="" src='img/zb13.png' onclick="capturaAcaoJogador(180);" /></span>
+                                <span id="dead5z180"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                        </tr>
+                    </table>
+
+
+
+                    <table border="0" cellspacing="0" cellpadding="0" id="grade6" style="display:none;" class="grade6">
+                        <tr>
+                            <td>
+                                <span id="espaco6z1">&nbsp;</span>
+                                <span id="grade6z1" style="display:none;"><img alt="" src='img/zb1.png' /></span>
+                                <span id="dead6z1"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="espaco6z2">&nbsp;</span>
+                                <span id="grade6z2" style="display:none;"><img alt="" src='img/zb2.png' /></span>
+                                <span id="dead6z2"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="espaco6z3">&nbsp;</span>
+                                <span id="grade6z3" style="display:none;"><img alt="" src='img/zb3.png' /></span>
+                                <span id="dead6z3"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="espaco6z4">&nbsp;</span>
+                                <span id="grade6z4" style="display:none;"><img alt="" src='img/zb4.png' /></span>
+                                <span id="dead6z4"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="espaco6z5">&nbsp;</span>
+                                <span id="grade6z5" style="display:none;"><img alt="" src='img/zb5.png' /></span>
+                                <span id="dead6z5"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="espaco6z6">&nbsp;</span>
+                                <span id="grade6z6" style="display:none;"><img alt="" src='img/zb6.png' /></span>
+                                <span id="dead6z6"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="espaco6z7">&nbsp;</span>
+                                <span id="grade6z7" style="display:none;"><img alt="" src='img/zb7.png' /></span>
+                                <span id="dead6z7"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>
+                                <span id="espaco6z8">&nbsp;</span>
+                                <span id="grade6z8" style="display:none;"><img alt="" src='img/zb8.png' /></span>
+                                <span id="dead6z8"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                                
+                                <span id="espaco6z9">&nbsp;</span>
+                                <span id="grade6z9" style="display:none;"><img alt="" src='img/zb9.png' /></span>
+                                <span id="dead6z9"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                                
+                                <span id="espaco6z10">&nbsp;</span>
+                                <span id="grade6z10" style="display:none;"><img alt="" src='img/zb10.png' /></span>
+                                <span id="dead6z10"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>                                
+                                <span id="espaco6z11">&nbsp;</span>
+                                <span id="grade6z11" style="display:none;"><img alt="" src='img/zb11.png' /></span>
+                                <span id="dead6z11"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                                
+                                <span id="espaco6z12">&nbsp;</span>
+                                <span id="grade6z12" style="display:none;"><img alt="" src='img/zb12.png' /></span>
+                                <span id="dead6z12"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                                
+                                <span id="espaco6z13">&nbsp;</span>
+                                <span id="grade6z13" style="display:none;"><img alt="" src='img/zb13.png' /></span>
+                                <span id="dead6z13"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                                
+                                <span id="espaco6z14">&nbsp;</span>
+                                <span id="grade6z14" style="display:none;"><img alt="" src='img/zb14.png' /></span>
+                                <span id="dead6z14"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                                
+                                <span id="espaco6z15">&nbsp;</span>
+                                <span id="grade6z15" style="display:none;"><img alt="" src='img/zb1.png' /></span>
+                                <span id="dead6z15"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                                
+                                <span id="espaco6z16">&nbsp;</span>
+                                <span id="grade6z16" style="display:none;"><img alt="" src='img/zb2.png' /></span>
+                                <span id="dead6z16"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                                
+                                <span id="espaco6z17">&nbsp;</span>
+                                <span id="grade6z17" style="display:none;"><img alt="" src='img/zb3.png' /></span>
+                                <span id="dead6z17"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                                
+                                <span id="espaco6z18">&nbsp;</span>
+                                <span id="grade6z18" style="display:none;"><img alt="" src='img/zb4.png' /></span>
+                                <span id="dead6z18"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                                
+                                <span id="espaco6z19">&nbsp;</span>
+                                <span id="grade6z19" style="display:none;"><img alt="" src='img/zb5.png' /></span>
+                                <span id="dead6z19"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                                
+                                <span id="espaco6z20">&nbsp;</span>
+                                <span id="grade6z20" style="display:none;"><img alt="" src='img/zb6.png' /></span>
+                                <span id="dead6z20"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>                                
+                                <span id="espaco6z21">&nbsp;</span>
+                                <span id="grade6z21" style="display:none;"><img alt="" src='img/zb7.png' /></span>
+                                <span id="dead6z21"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                                
+                                <span id="espaco6z22">&nbsp;</span>
+                                <span id="grade6z22" style="display:none;"><img alt="" src='img/zb8.png' /></span>
+                                <span id="dead6z22"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                                
+                                <span id="espaco6z23">&nbsp;</span>
+                                <span id="grade6z23" style="display:none;"><img alt="" src='img/zb9.png' /></span>
+                                <span id="dead6z23"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                                
+                                <span id="espaco6z24">&nbsp;</span>
+                                <span id="grade6z24" style="display:none;"><img alt="" src='img/zb10.png' /></span>
+                                <span id="dead6z24"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                                
+                                <span id="espaco6z25">&nbsp;</span>
+                                <span id="grade6z25" style="display:none;"><img alt="" src='img/zb11.png' /></span>
+                                <span id="dead6z25"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                                
+                                <span id="espaco6z26">&nbsp;</span>
+                                <span id="grade6z26" style="display:none;"><img alt="" src='img/zb12.png' /></span>
+                                <span id="dead6z26"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                                
+                                <span id="espaco6z27">&nbsp;</span>
+                                <span id="grade6z27" style="display:none;"><img alt="" src='img/zb13.png' /></span>
+                                <span id="dead6z27"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                                
+                                <span id="espaco6z28">&nbsp;</span>
+                                <span id="grade6z28" style="display:none;"><img alt="" src='img/zb14.png' /></span>
+                                <span id="dead6z28"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                                
+                                <span id="espaco6z29">&nbsp;</span>
+                                <span id="grade6z29" style="display:none;"><img alt="" src='img/zb1.png' /></span>
+                                <span id="dead6z29"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                                
+                                <span id="espaco6z30">&nbsp;</span>
+                                <span id="grade6z30" style="display:none;"><img alt="" src='img/zb2.png' /></span>
+                                <span id="dead6z30"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>                                
+                                <span id="espaco6z31">&nbsp;</span>
+                                <span id="grade6z31" style="display:none;"><img alt="" src='img/zb3.png' /></span>
+                                <span id="dead6z31"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                                
+                                <span id="espaco6z32">&nbsp;</span>
+                                <span id="grade6z32" style="display:none;"><img alt="" src='img/zb4.png' /></span>
+                                <span id="dead6z32"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                                
+                                <span id="espaco6z33">&nbsp;</span>
+                                <span id="grade6z33" style="display:none;"><img alt="" src='img/zb5.png' /></span>
+                                <span id="dead6z33"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                                
+                                <span id="espaco6z34">&nbsp;</span>
+                                <span id="grade6z34" style="display:none;"><img alt="" src='img/zb6.png' /></span>
+                                <span id="dead6z34"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                                
+                                <span id="espaco6z35">&nbsp;</span>
+                                <span id="grade6z35" style="display:none;"><img alt="" src='img/zb7.png' /></span>
+                                <span id="dead6z35"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                                
+                                <span id="espaco6z36">&nbsp;</span>
+                                <span id="grade6z36" style="display:none;"><img alt="" src='img/zb8.png' /></span>
+                                <span id="dead6z36"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                                
+                                <span id="espaco6z37">&nbsp;</span>
+                                <span id="grade6z37" style="display:none;"><img alt="" src='img/zb9.png' /></span>
+                                <span id="dead6z37"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                                
+                                <span id="espaco6z38">&nbsp;</span>
+                                <span id="grade6z38" style="display:none;"><img alt="" src='img/zb10.png' /></span>
+                                <span id="dead6z38"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                                
+                                <span id="espaco6z39">&nbsp;</span>
+                                <span id="grade6z39" style="display:none;"><img alt="" src='img/zb11.png' /></span>
+                                <span id="dead6z39"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                                
+                                <span id="espaco6z40">&nbsp;</span>
+                                <span id="grade6z40" style="display:none;"><img alt="" src='img/zb12.png' /></span>
+                                <span id="dead6z40"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>                                
+                                <span id="espaco6z41">&nbsp;</span>
+                                <span id="grade6z41" style="display:none;"><img alt="" src='img/zb13.png' /></span>
+                                <span id="dead6z41"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                                
+                                <span id="espaco6z42">&nbsp;</span>
+                                <span id="grade6z42" style="display:none;"><img alt="" src='img/zb14.png' /></span>
+                                <span id="dead6z42"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                                
+                                <span id="espaco6z43">&nbsp;</span>
+                                <span id="grade6z43" style="display:none;"><img alt="" src='img/zb1.png' /></span>
+                                <span id="dead6z43"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                                
+                                <span id="espaco6z44">&nbsp;</span>
+                                <span id="grade6z44" style="display:none;"><img alt="" src='img/zb2.png' /></span>
+                                <span id="dead6z44"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                                
+                                <span id="espaco6z45">&nbsp;</span>
+                                <span id="grade6z45" style="display:none;"><img alt="" src='img/zb3.png' /></span>
+                                <span id="dead6z45"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                                
+                                <span id="espaco6z46">&nbsp;</span>
+                                <span id="grade6z46" style="display:none;"><img alt="" src='img/zb4.png' /></span>
+                                <span id="dead6z46"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                                
+                                <span id="espaco6z47">&nbsp;</span>
+                                <span id="grade6z47" style="display:none;"><img alt="" src='img/zb5.png' /></span>
+                                <span id="dead6z47"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                                
+                                <span id="espaco6z48">&nbsp;</span>
+                                <span id="grade6z48" style="display:none;"><img alt="" src='img/zb6.png' /></span>
+                                <span id="dead6z48"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                                
+                                <span id="espaco6z49">&nbsp;</span>
+                                <span id="grade6z49" style="display:none;"><img alt="" src='img/zb7.png' /></span>
+                                <span id="dead6z49"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                                
+                                <span id="espaco6z50">&nbsp;</span>
+                                <span id="grade6z50" style="display:none;"><img alt="" src='img/zb8.png' /></span>
+                                <span id="dead6z50"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>                                
+                                <span id="espaco6z51">&nbsp;</span>
+                                <span id="grade6z51" style="display:none;"><img alt="" src='img/zb9.png' /></span>
+                                <span id="dead6z51"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                                
+                                <span id="espaco6z52">&nbsp;</span>
+                                <span id="grade6z52" style="display:none;"><img alt="" src='img/zb10.png' /></span>
+                                <span id="dead6z52"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                                
+                                <span id="espaco6z53">&nbsp;</span>
+                                <span id="grade6z53" style="display:none;"><img alt="" src='img/zb11.png' /></span>
+                                <span id="dead6z53"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                                
+                                <span id="espaco6z54">&nbsp;</span>
+                                <span id="grade6z54" style="display:none;"><img alt="" src='img/zb12.png' /></span>
+                                <span id="dead6z54"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                                
+                                <span id="espaco6z55">&nbsp;</span>
+                                <span id="grade6z55" style="display:none;"><img alt="" src='img/zb13.png' /></span>
+                                <span id="dead6z55"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                                
+                                <span id="espaco6z56">&nbsp;</span>
+                                <span id="grade6z56" style="display:none;"><img alt="" src='img/zb14.png' /></span>
+                                <span id="dead6z56"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                                
+                                <span id="espaco6z57">&nbsp;</span>
+                                <span id="grade6z57" style="display:none;"><img alt="" src='img/zb1.png' /></span>
+                                <span id="dead6z57"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                                
+                                <span id="espaco6z58">&nbsp;</span>
+                                <span id="grade6z58" style="display:none;"><img alt="" src='img/zb2.png' /></span>
+                                <span id="dead6z58"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                                
+                                <span id="espaco6z59">&nbsp;</span>
+                                <span id="grade6z59" style="display:none;"><img alt="" src='img/zb3.png' /></span>
+                                <span id="dead6z59"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                                
+                                <span id="espaco6z60">&nbsp;</span>
+                                <span id="grade6z60" style="display:none;"><img alt="" src='img/zb4.png' /></span>
+                                <span id="dead6z60"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>                                
+                                <span id="espaco6z61">&nbsp;</span>
+                                <span id="grade6z61" style="display:none;"><img alt="" src='img/zb5.png' /></span>
+                                <span id="dead6z61"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                                
+                                <span id="espaco6z62">&nbsp;</span>
+                                <span id="grade6z62" style="display:none;"><img alt="" src='img/zb6.png' /></span>
+                                <span id="dead6z62"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                    
+                                <span id="espaco6z63">&nbsp;</span>
+                                <span id="grade6z63" style="display:none;"><img alt="" src='img/zb7.png' /></span>
+                                <span id="dead6z63"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                    
+                                <span id="espaco6z64">&nbsp;</span>
+                                <span id="grade6z64" style="display:none;"><img alt="" src='img/zb8.png' /></span>
+                                <span id="dead6z64"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                    
+                                <span id="espaco6z65">&nbsp;</span>
+                                <span id="grade6z65" style="display:none;"><img alt="" src='img/zb9.png' /></span>
+                                <span id="dead6z65"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                                
+                                <span id="espaco6z66">&nbsp;</span>
+                                <span id="grade6z66" style="display:none;"><img alt="" src='img/zb10.png' /></span>
+                                <span id="dead6z66"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                    
+                                <span id="espaco6z67">&nbsp;</span>
+                                <span id="grade6z67" style="display:none;"><img alt="" src='img/zb11.png' /></span>
+                                <span id="dead6z67"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                    
+                                <span id="espaco6z68">&nbsp;</span>
+                                <span id="grade6z68" style="display:none;"><img alt="" src='img/zb12.png' /></span>
+                                <span id="dead6z68"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                    
+                                <span id="espaco6z69">&nbsp;</span>
+                                <span id="grade6z69" style="display:none;"><img alt="" src='img/zb13.png' /></span>
+                                <span id="dead6z69"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                    
+                                <span id="espaco6z70">&nbsp;</span>
+                                <span id="grade6z70" style="display:none;"><img alt="" src='img/zb14.png' /></span>
+                                <span id="dead6z70"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                        </tr>
+
+
+                        <tr>
+                            <td>                    
+                                <span id="espaco6z71">&nbsp;</span>
+                                <span id="grade6z71" style="display:none;"><img alt="" src='img/zb1.png' /></span>
+                                <span id="dead6z71"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                   
+                                <span id="espaco6z72">&nbsp;</span>
+                                <span id="grade6z72" style="display:none;"><img alt="" src='img/zb2.png' /></span>
+                                <span id="dead6z72"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                    
+                                <span id="espaco6z73">&nbsp;</span>
+                                <span id="grade6z73" style="display:none;"><img alt="" src='img/zb3.png' /></span>
+                                <span id="dead6z73"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                    
+                                <span id="espaco6z74">&nbsp;</span>
+                                <span id="grade6z74" style="display:none;"><img alt="" src='img/zb4.png' /></span>
+                                <span id="dead6z74"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                    
+                                <span id="espaco6z75">&nbsp;</span>
+                                <span id="grade6z75" style="display:none;"><img alt="" src='img/zb5.png' /></span>
+                                <span id="dead6z75"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                    
+                                <span id="espaco6z76">&nbsp;</span>
+                                <span id="grade6z76" style="display:none;"><img alt="" src='img/zb6.png' /></span>
+                                <span id="dead6z76"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                    
+                                <span id="espaco6z77">&nbsp;</span>
+                                <span id="grade6z77" style="display:none;"><img alt="" src='img/zb7.png' /></span>
+                                <span id="dead6z77"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                    
+                                <span id="espaco6z78">&nbsp;</span>
+                                <span id="grade6z78" style="display:none;"><img alt="" src='img/zb8.png' /></span>
+                                <span id="dead6z78"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                    
+                                <span id="espaco6z79">&nbsp;</span>
+                                <span id="grade6z79" style="display:none;"><img alt="" src='img/zb9.png' /></span>
+                                <span id="dead6z79"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                    
+                                <span id="espaco6z80">&nbsp;</span>
+                                <span id="grade6z80" style="display:none;"><img alt="" src='img/zb10.png' /></span>
+                                <span id="dead6z80"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>                    
+                                <span id="espaco6z81">&nbsp;</span>
+                                <span id="grade6z81" style="display:none;"><img alt="" src='img/zb11.png' /></span>
+                                <span id="dead6z81"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                   
+                                <span id="espaco6z82">&nbsp;</span>
+                                <span id="grade6z82" style="display:none;"><img alt="" src='img/zb12.png' /></span>
+                                <span id="dead6z82"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                    
+                                <span id="espaco6z83">&nbsp;</span>
+                                <span id="grade6z83" style="display:none;"><img alt="" src='img/zb13.png' /></span>
+                                <span id="dead6z83"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                    
+                                <span id="espaco6z84">&nbsp;</span>
+                                <span id="grade6z84" style="display:none;"><img alt="" src='img/zb14.png' /></span>
+                                <span id="dead6z84"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                    
+                                <span id="espaco6z85">&nbsp;</span>
+                                <span id="grade6z85" style="display:none;"><img alt="" src='img/zb1.png' /></span>
+                                <span id="dead6z85"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                    
+                                <span id="espaco6z86">&nbsp;</span>
+                                <span id="grade6z86" style="display:none;"><img alt="" src='img/zb2.png' /></span>
+                                <span id="dead6z86"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                    
+                                <span id="espaco6z87">&nbsp;</span>
+                                <span id="grade6z87" style="display:none;"><img alt="" src='img/zb3.png' /></span>
+                                <span id="dead6z87"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                    
+                                <span id="espaco6z88">&nbsp;</span>
+                                <span id="grade6z88" style="display:none;"><img alt="" src='img/zb4.png' /></span>
+                                <span id="dead6z88"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                    
+                                <span id="espaco6z89">&nbsp;</span>
+                                <span id="grade6z89" style="display:none;"><img alt="" src='img/zb5.png' /></span>
+                                <span id="dead6z89"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                    
+                                <span id="espaco6z90">&nbsp;</span>
+                                <span id="grade6z90" style="display:none;"><img alt="" src='img/zb6.png' /></span>
+                                <span id="dead6z90"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>                    
+                                <span id="espaco6z91">&nbsp;</span>
+                                <span id="grade6z91" style="display:none;"><img alt="" src='img/zb7.png' /></span>
+                                <span id="dead6z91"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                   
+                                <span id="espaco6z92">&nbsp;</span>
+                                <span id="grade6z92" style="display:none;"><img alt="" src='img/zb8.png' /></span>
+                                <span id="dead6z92"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                    
+                                <span id="espaco6z93">&nbsp;</span>
+                                <span id="grade6z93" style="display:none;"><img alt="" src='img/zb9.png' /></span>
+                                <span id="dead6z93"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                    
+                                <span id="espaco6z94">&nbsp;</span>
+                                <span id="grade6z94" style="display:none;"><img alt="" src='img/zb10.png' /></span>
+                                <span id="dead6z94"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                    
+                                <span id="espaco6z95">&nbsp;</span>
+                                <span id="grade6z95" style="display:none;"><img alt="" src='img/zb11.png' /></span>
+                                <span id="dead6z95"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                    
+                                <span id="espaco6z96">&nbsp;</span>
+                                <span id="grade6z96" style="display:none;"><img alt="" src='img/zb12.png' /></span>
+                                <span id="dead6z96"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                    
+                                <span id="espaco6z97">&nbsp;</span>
+                                <span id="grade6z97" style="display:none;"><img alt="" src='img/zb13.png' /></span>
+                                <span id="dead6z97"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                   
+                                <span id="espaco6z98">&nbsp;</span>
+                                <span id="grade6z98" style="display:none;"><img alt="" src='img/zb14.png' /></span>
+                                <span id="dead6z98"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                    
+                                <span id="espaco6z99">&nbsp;</span>
+                                <span id="grade6z99" style="display:none;"><img alt="" src='img/zb1.png' /></span>
+                                <span id="dead6z99"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                    
+                                <span id="espaco6z100">&nbsp;</span>
+                                <span id="grade6z100" style="display:none;"><img alt="" src='img/zb2.png' /></span>
+                                <span id="dead6z100"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>                     
+                                <span id="espaco6z101">&nbsp;</span>
+                                <span id="grade6z101" style="display:none;"><img alt="" src='img/zb3.png' /></span>
+                                <span id="dead6z101"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                     
+                                <span id="espaco6z102">&nbsp;</span>
+                                <span id="grade6z102" style="display:none;"><img alt="" src='img/zb4.png' /></span>
+                                <span id="dead6z102"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                     
+                                <span id="espaco6z103">&nbsp;</span>
+                                <span id="grade6z103" style="display:none;"><img alt="" src='img/zb5.png' /></span>
+                                <span id="dead6z103"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                     
+                                <span id="espaco6z104">&nbsp;</span>
+                                <span id="grade6z104" style="display:none;"><img alt="" src='img/zb6.png' /></span>
+                                <span id="dead6z104"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                     
+                                <span id="espaco6z105">&nbsp;</span>
+                                <span id="grade6z105" style="display:none;"><img alt="" src='img/zb7.png' /></span>
+                                <span id="dead6z105"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                     
+                                <span id="espaco6z106">&nbsp;</span>
+                                <span id="grade6z106" style="display:none;"><img alt="" src='img/zb8.png' /></span>
+                                <span id="dead6z106"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                     
+                                <span id="espaco6z107">&nbsp;</span>
+                                <span id="grade6z107" style="display:none;"><img alt="" src='img/zb9.png' /></span>
+                                <span id="dead6z107"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                     
+                                <span id="espaco6z108">&nbsp;</span>
+                                <span id="grade6z108" style="display:none;"><img alt="" src='img/zb10.png' /></span>
+                                <span id="dead6z108"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                     
+                                <span id="espaco6z109">&nbsp;</span>
+                                <span id="grade6z109" style="display:none;"><img alt="" src='img/zb11.png' /></span>
+                                <span id="dead6z109"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                     
+                                <span id="espaco6z110">&nbsp;</span>
+                                <span id="grade6z110" style="display:none;"><img alt="" src='img/zb12.png' /></span>
+                                <span id="dead6z110"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>                     
+                                <span id="espaco6z111">&nbsp;</span>
+                                <span id="grade6z111" style="display:none;"><img alt="" src='img/zb13.png' /></span>
+                                <span id="dead6z111"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                     
+                                <span id="espaco6z112">&nbsp;</span>
+                                <span id="grade6z112" style="display:none;"><img alt="" src='img/zb14.png' /></span>
+                                <span id="dead6z112"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                     
+                                <span id="espaco6z113">&nbsp;</span>
+                                <span id="grade6z113" style="display:none;"><img alt="" src='img/zb1.png' /></span>
+                                <span id="dead6z113"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                     
+                                <span id="espaco6z114">&nbsp;</span>
+                                <span id="grade6z114" style="display:none;"><img alt="" src='img/zb2.png' /></span>
+                                <span id="dead6z114"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                     
+                                <span id="espaco6z115">&nbsp;</span>
+                                <span id="grade6z115" style="display:none;"><img alt="" src='img/zb3.png' /></span>
+                                <span id="dead6z115"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                     
+                                <span id="espaco6z116">&nbsp;</span>
+                                <span id="grade6z116" style="display:none;"><img alt="" src='img/zb4.png' /></span>
+                                <span id="dead6z116"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                     
+                                <span id="espaco6z117">&nbsp;</span>
+                                <span id="grade6z117" style="display:none;"><img alt="" src='img/zb5.png' /></span>
+                                <span id="dead6z117"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                     
+                                <span id="espaco6z118">&nbsp;</span>
+                                <span id="grade6z118" style="display:none;"><img alt="" src='img/zb6.png' /></span>
+                                <span id="dead6z118"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                     
+                                <span id="espaco6z119">&nbsp;</span>
+                                <span id="grade6z119" style="display:none;"><img alt="" src='img/zb7.png' /></span>
+                                <span id="dead6z119"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                     
+                                <span id="espaco6z120">&nbsp;</span>
+                                <span id="grade6z120" style="display:none;"><img alt="" src='img/zb8.png' /></span>
+                                <span id="dead6z120"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>                     
+                                <span id="espaco6z121">&nbsp;</span>
+                                <span id="grade6z121" style="display:none;"><img alt="" src='img/zb9.png' /></span>
+                                <span id="dead6z121"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                     
+                                <span id="espaco6z122">&nbsp;</span>
+                                <span id="grade6z122" style="display:none;"><img alt="" src='img/zb10.png' /></span>
+                                <span id="dead6z122"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                     
+                                <span id="espaco6z123">&nbsp;</span>
+                                <span id="grade6z123" style="display:none;"><img alt="" src='img/zb11.png' /></span>
+                                <span id="dead6z123"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                     
+                                <span id="espaco6z124">&nbsp;</span>
+                                <span id="grade6z124" style="display:none;"><img alt="" src='img/zb12.png' /></span>
+                                <span id="dead6z124"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                     
+                                <span id="espaco6z125">&nbsp;</span>
+                                <span id="grade6z125" style="display:none;"><img alt="" src='img/zb13.png' /></span>
+                                <span id="dead6z125"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                     
+                                <span id="espaco6z126">&nbsp;</span>
+                                <span id="grade6z126" style="display:none;"><img alt="" src='img/zb14.png' /></span>
+                                <span id="dead6z126"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                     
+                                <span id="espaco6z127">&nbsp;</span>
+                                <span id="grade6z127" style="display:none;"><img alt="" src='img/zb1.png' /></span>
+                                <span id="dead6z127"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                     
+                                <span id="espaco6z128">&nbsp;</span>
+                                <span id="grade6z128" style="display:none;"><img alt="" src='img/zb2.png' /></span>
+                                <span id="dead6z128"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                     
+                                <span id="espaco6z129">&nbsp;</span>
+                                <span id="grade6z129" style="display:none;"><img alt="" src='img/zb3.png' /></span>
+                                <span id="dead6z129"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                     
+                                <span id="espaco6z130">&nbsp;</span>
+                                <span id="grade6z130" style="display:none;"><img alt="" src='img/zb4.png' /></span>
+                                <span id="dead6z130"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>                     
+                                <span id="espaco6z131">&nbsp;</span>
+                                <span id="grade6z131" style="display:none;"><img alt="" src='img/zb5.png' /></span>
+                                <span id="dead6z131"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                     
+                                <span id="espaco6z132">&nbsp;</span>
+                                <span id="grade6z132" style="display:none;"><img alt="" src='img/zb6.png' /></span>
+                                <span id="dead6z132"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                     
+                                <span id="espaco6z133">&nbsp;</span>
+                                <span id="grade6z133" style="display:none;"><img alt="" src='img/zb7.png' /></span>
+                                <span id="dead6z133"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                     
+                                <span id="espaco6z134">&nbsp;</span>
+                                <span id="grade6z134" style="display:none;"><img alt="" src='img/zb8.png' /></span>
+                                <span id="dead6z134"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                     
+                                <span id="espaco6z135">&nbsp;</span>
+                                <span id="grade6z135" style="display:none;"><img alt="" src='img/zb9.png' /></span>
+                                <span id="dead6z135"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                     
+                                <span id="espaco6z136">&nbsp;</span>
+                                <span id="grade6z136" style="display:none;"><img alt="" src='img/zb10.png' /></span>
+                                <span id="dead6z136"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                     
+                                <span id="espaco6z137">&nbsp;</span>
+                                <span id="grade6z137" style="display:none;"><img alt="" src='img/zb11.png' /></span>
+                                <span id="dead6z137"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                     
+                                <span id="espaco6z138">&nbsp;</span>
+                                <span id="grade6z138" style="display:none;"><img alt="" src='img/zb12.png' /></span>
+                                <span id="dead6z138"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                     
+                                <span id="espaco6z139">&nbsp;</span>
+                                <span id="grade6z139" style="display:none;"><img alt="" src='img/zb13.png' /></span>
+                                <span id="dead6z139"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                     
+                                <span id="espaco6z140">&nbsp;</span>
+                                <span id="grade6z140" style="display:none;"><img alt="" src='img/zb14.png' /></span>
+                                <span id="dead6z140"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>                     
+                                <span id="espaco6z141">&nbsp;</span>
+                                <span id="grade6z141" style="display:none;"><img alt="" src='img/zb1.png' /></span>
+                                <span id="dead6z141"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                     
+                                <span id="espaco6z142">&nbsp;</span>
+                                <span id="grade6z142" style="display:none;"><img alt="" src='img/zb2.png' /></span>
+                                <span id="dead6z142"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                     
+                                <span id="espaco6z143">&nbsp;</span>
+                                <span id="grade6z143" style="display:none;"><img alt="" src='img/zb3.png' /></span>
+                                <span id="dead6z143"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                     
+                                <span id="espaco6z144">&nbsp;</span>
+                                <span id="grade6z144" style="display:none;"><img alt="" src='img/zb4.png' /></span>
+                                <span id="dead6z144"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                     
+                                <span id="espaco6z145">&nbsp;</span>
+                                <span id="grade6z145" style="display:none;"><img alt="" src='img/zb5.png' /></span>
+                                <span id="dead6z145"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                     
+                                <span id="espaco6z146">&nbsp;</span>
+                                <span id="grade6z146" style="display:none;"><img alt="" src='img/zb6.png' /></span>
+                                <span id="dead6z146"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                     
+                                <span id="espaco6z147">&nbsp;</span>
+                                <span id="grade6z147" style="display:none;"><img alt="" src='img/zb7.png' /></span>
+                                <span id="dead6z147"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                     
+                                <span id="espaco6z148">&nbsp;</span>
+                                <span id="grade6z148" style="display:none;"><img alt="" src='img/zb8.png' /></span>
+                                <span id="dead6z148"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                     
+                                <span id="espaco6z149">&nbsp;</span>
+                                <span id="grade6z149" style="display:none;"><img alt="" src='img/zb9.png' /></span>
+                                <span id="dead6z149"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                     
+                                <span id="espaco6z150">&nbsp;</span>
+                                <span id="grade6z150" style="display:none;"><img alt="" src='img/zb10.png' /></span>
+                                <span id="dead6z150"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>                     
+                                <span id="espaco6z151">&nbsp;</span>
+                                <span id="grade6z151" style="display:none;"><img alt="" src='img/zb11.png' /></span>
+                                <span id="dead6z151"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                     
+                                <span id="espaco6z152">&nbsp;</span>
+                                <span id="grade6z152" style="display:none;"><img alt="" src='img/zb12.png' /></span>
+                                <span id="dead6z152"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                     
+                                <span id="espaco6z153">&nbsp;</span>
+                                <span id="grade6z153" style="display:none;"><img alt="" src='img/zb13.png' /></span>
+                                <span id="dead6z153"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                     
+                                <span id="espaco6z154">&nbsp;</span>
+                                <span id="grade6z154" style="display:none;"><img alt="" src='img/zb14.png' /></span>
+                                <span id="dead6z154"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                     
+                                <span id="espaco6z155">&nbsp;</span>
+                                <span id="grade6z155" style="display:none;"><img alt="" src='img/zb1.png' /></span>
+                                <span id="dead6z155"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                     
+                                <span id="espaco6z156">&nbsp;</span>
+                                <span id="grade6z156" style="display:none;"><img alt="" src='img/zb2.png' /></span>
+                                <span id="dead6z156"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                     
+                                <span id="espaco6z157">&nbsp;</span>
+                                <span id="grade6z157" style="display:none;"><img alt="" src='img/zb3.png' /></span>
+                                <span id="dead6z157"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                     
+                                <span id="espaco6z158">&nbsp;</span>
+                                <span id="grade6z158" style="display:none;"><img alt="" src='img/zb4.png' /></span>
+                                <span id="dead6z158"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                     
+                                <span id="espaco6z159">&nbsp;</span>
+                                <span id="grade6z159" style="display:none;"><img alt="" src='img/zb5.png' /></span>
+                                <span id="dead6z159"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                     
+                                <span id="espaco6z160">&nbsp;</span>
+                                <span id="grade6z160" style="display:none;"><img alt="" src='img/zb6.png' /></span>
+                                <span id="dead6z160"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>                     
+                                <span id="espaco6z161">&nbsp;</span>
+                                <span id="grade6z161" style="display:none;"><img alt="" src='img/zb7.png' /></span>
+                                <span id="dead6z161"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                     
+                                <span id="espaco6z162">&nbsp;</span>
+                                <span id="grade6z162" style="display:none;"><img alt="" src='img/zb8.png' /></span>
+                                <span id="dead6z162"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                     
+                                <span id="espaco6z163">&nbsp;</span>
+                                <span id="grade6z163" style="display:none;"><img alt="" src='img/zb9.png' /></span>
+                                <span id="dead6z163"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                     
+                                <span id="espaco6z164">&nbsp;</span>
+                                <span id="grade6z164" style="display:none;"><img alt="" src='img/zb10.png' /></span>
+                                <span id="dead6z164"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                     
+                                <span id="espaco6z165">&nbsp;</span>
+                                <span id="grade6z165" style="display:none;"><img alt="" src='img/zb11.png' /></span>
+                                <span id="dead6z165"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                     
+                                <span id="espaco6z166">&nbsp;</span>
+                                <span id="grade6z166" style="display:none;"><img alt="" src='img/zb12.png' /></span>
+                                <span id="dead6z166"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                     
+                                <span id="espaco6z167">&nbsp;</span>
+                                <span id="grade6z167" style="display:none;"><img alt="" src='img/zb13.png' /></span>
+                                <span id="dead6z167"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                     
+                                <span id="espaco6z168">&nbsp;</span>
+                                <span id="grade6z168" style="display:none;"><img alt="" src='img/zb14.png' /></span>
+                                <span id="dead6z168"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                     
+                                <span id="espaco6z169">&nbsp;</span>
+                                <span id="grade6z169" style="display:none;"><img alt="" src='img/zb1.png' /></span>
+                                <span id="dead6z169"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                     
+                                <span id="espaco6z170">&nbsp;</span>
+                                <span id="grade6z170" style="display:none;"><img alt="" src='img/zb2.png' /></span>
+                                <span id="dead6z170"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>                     
+                                <span id="espaco6z171">&nbsp;</span>
+                                <span id="grade6z171" style="display:none;"><img alt="" src='img/zb3.png' /></span>
+                                <span id="dead6z171"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                     
+                                <span id="espaco6z172">&nbsp;</span>
+                                <span id="grade6z172" style="display:none;"><img alt="" src='img/zb4.png' /></span>
+                                <span id="dead6z172"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                     
+                                <span id="espaco6z173">&nbsp;</span>
+                                <span id="grade6z173" style="display:none;"><img alt="" src='img/zb5.png' /></span>
+                                <span id="dead6z173"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                     
+                                <span id="espaco6z174">&nbsp;</span>
+                                <span id="grade6z174" style="display:none;"><img alt="" src='img/zb6.png' /></span>
+                                <span id="dead6z174"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                     
+                                <span id="espaco6z175">&nbsp;</span>
+                                <span id="grade6z175" style="display:none;"><img alt="" src='img/zb7.png' /></span>
+                                <span id="dead6z175"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                     
+                                <span id="espaco6z176">&nbsp;</span>
+                                <span id="grade6z176" style="display:none;"><img alt="" src='img/zb8.png' /></span>
+                                <span id="dead6z176"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                     
+                                <span id="espaco6z177">&nbsp;</span>
+                                <span id="grade6z177" style="display:none;"><img alt="" src='img/zb9.png' /></span>
+                                <span id="dead6z177"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                     
+                                <span id="espaco6z178">&nbsp;</span>
+                                <span id="grade6z178" style="display:none;"><img alt="" src='img/zb10.png' /></span>
+                                <span id="dead6z178"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                     
+                                <span id="espaco6z179">&nbsp;</span>
+                                <span id="grade6z179" style="display:none;"><img alt="" src='img/zb11.png' /></span>
+                                <span id="dead6z179"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+                            <td>                     
+                                <span id="espaco6z180">&nbsp;</span>
+                                <span id="grade6z180" style="display:none;"><img alt="" src='img/zb12.png' /></span>
+                                <span id="dead6z180"  style="display:none;"><img alt="" src='img/zombieDead1.png' /> </span>
+                            </td>
+
+                        </tr>
+
+                    </table>
+                </div>
+
+                <div class="subTela3">
+                    <input type="button" id="btnInicioJogo" value="Inicio"  />
+                    <input type="button" id="btnArregarNoJogo" value="Quero Arregar!" style="display: none;" />
+                    <input type="button" id="btnMatarZumbis" value="Matar Zumbis" />
+                </div>
+                
+            </div>
+        </div>
+    </body>
+</html>

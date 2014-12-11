@@ -1,0 +1,96 @@
+The Walking Dead :: Puzzle
+
++ Itens bons para o projeto se der tempo ou for viável:
+10)quando estiver em uma versão beta, postar no facebook
+11)inserir a musica de fundo;
+->quando clicar no botão, deve fazer ter um load de ao menos 2 segundos ou um 
+segundo, para dar impressão que o jogo esta sendo carregado, fica mais elegante 
+visualmente, podemos ultilizar a imagem de fundo bg2                            ==>em aguardo
+
++ Correções de Bugs:
+
+
++ Pendencias do projeto:
+->após o jogo passar por testes e estar bonito, deployar no FB.                 <testes + deploy>
+->adicionar ao menos 20 fases no jogo, reutilizando as grids já criadas.        <programacao>
+
+
++ Tarefas em andamento:
+5)inserir painel com pontuação                                                  ==> <em dev>
+->pesquisar para deixar os graficos semelhantes a um jogo profissional.         <css>
+->correção do layout para entrega do jogo como um produto final.                <css>
+->pesquisar fontes de zombie para colocar nos botões e na pontuação do jogo.    <css>
+->colocar as imagens de armas no ponteiro do mouse;                             ==>ñ conseguimos colocar img, ficou como crosshair por enquanto (vale a pena consultar o matheus)
+->Trocar os botões <html> por botões css ou imagens de acordo com a imagem de 
+fundo e posiciona-las corretamente;                                             ==>pesquisar melhor solução visual
+9)realizar testes
+
+
++ Tarefas realizadas:
+3)inserir/desenvolver os itens que serão ponteiro do mouse na sub-tela 1
+7)fazer o jogo funcionar corretamente
+1)desenvolver uma arte para a tela inicial.
+8)inserir bom layout com imagens do filme TWD.
+12)conforme ir avançando no jogo, deve ser mais rápido para que tenha um certo 
+grau de dificuldade.
+1)corrigir o bug que permite aparecer o msm zumbi no mesmo quadro duas vezes;   ==> <corrigido>
+3)corrigir problema de redimensionamento de tamanho dos quadros;                ==> <corrigido>
+2)corrigir bug que quando o jogador perde, ele mostra a msg mas não leva o 
+jogador a lugar nenhum, ele deve mostrar a mensagem fora do alert js, dizendo
+ que ele perdeu, e redireciona-lo ao carrossel.                                 ==> <corrigido>
+4)o jogo num passa da grade 4.                                                  ==> <corrigido>
+5.1)conforme o jogador ir avançando nas telas, o tempo entre as apariçoes dos 
+zumbis deve ficar mais rápido, para dar uma sençação de desafio ao jogador.     
+4)consertar a grid do carrossel que está quebrando, deixar tamanho fixo
+2)retirar botão tutorial
+6)corrigir o tamanho da imagem (zumbie rotativo | zumbie morto) em cada grid
+
+
+//codigo js para depuração no firefox:
+
+var displayNone = "block",
+    displayBlock= "none";
+
+document.getElementById('telaInicial').style.display = "none";
+document.getElementById('tela1').style.display       = "block";
+document.getElementById('grade0').style.display      = "none";
+document.getElementById('grade1').style.display      = "none";
+document.getElementById('grade2').style.display      = "none";
+document.getElementById('grade3').style.display      = "none";
+document.getElementById('grade4').style.display      = "none";
+document.getElementById('grade5').style.display      = "none";
+document.getElementById('grade6').style.display      = "block";
+
+for(var x=1;x<180;x++){
+    document.getElementById('grade6z'+x).style.display   = 'block';
+    document.getElementById('dead6z'+x).style.display    = 'none';
+    
+    //document.getElementById('grade5z'+x).style.display   = 'none';
+    //document.getElementById('dead5z'+x).style.display    = 'block';
+}
+
+
+
+================================================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
