@@ -1,18 +1,16 @@
-The Walking Dead :: Puzzle
-
-+ Itens bons para o projeto se der tempo ou for viável:
-10)quando estiver em uma versão beta, postar no facebook
-11)inserir a musica de fundo;
-->quando clicar no botão, deve fazer ter um load de ao menos 2 segundos ou um 
-segundo, para dar impressão que o jogo esta sendo carregado, fica mais elegante 
-visualmente, podemos ultilizar a imagem de fundo bg2                            ==>em aguardo
-
-+ Correções de Bugs:
-
+desordem e regresso :: Puzzle
 
 + Pendencias do projeto:
-->após o jogo passar por testes e estar bonito, deployar no FB.                 <testes + deploy>
-->adicionar ao menos 20 fases no jogo, reutilizando as grids já criadas.        <programacao>
+->ambientalizar o game com imagens tematicas
+->fazer as versoes:
+1)a ira dos petralhas - onde a matança rola solta nos tucanos
+2)a ira dos tucanos - onde os petralhas nao tem vez
+3)Joaquim Barbosa Sniper - tucanos e petralhas que se cuidem
+
+
++ Correções de Bugs:
+parou de funcionar na segunda fase
+
 
 
 + Tarefas em andamento:
