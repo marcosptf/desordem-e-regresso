@@ -32,7 +32,8 @@ YUI().use("node", function(Y) {
 
     btnInicioJogo.on("click", function(e) {
         divPrincipal.setStyle("backgroundImage", "url('"+BGImagePath+BGImage4+"')");
-        exibeCarrossel();
+	    telaInicial.setStyle("display", "none");
+	    tela1.setStyle("display", "block");
     });
 
     btnArregarNoJogo.on("click", function(e) {
