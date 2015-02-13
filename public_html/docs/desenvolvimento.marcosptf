@@ -7,21 +7,12 @@ desordem e regresso :: Puzzle
 2)a ira dos tucanos - onde os petralhas nao tem vez
 3)Joaquim Barbosa Sniper - tucanos e petralhas que se cuidem
 
-
 + Correções de Bugs:
 parou de funcionar na segunda fase
 
-
-
 + Tarefas em andamento:
-5)inserir painel com pontuação                                                  ==> <em dev>
-->pesquisar para deixar os graficos semelhantes a um jogo profissional.         <css>
-->correção do layout para entrega do jogo como um produto final.                <css>
-->pesquisar fontes de zombie para colocar nos botões e na pontuação do jogo.    <css>
-->colocar as imagens de armas no ponteiro do mouse;                             ==>ñ conseguimos colocar img, ficou como crosshair por enquanto (vale a pena consultar o matheus)
-->Trocar os botões <html> por botões css ou imagens de acordo com a imagem de 
-fundo e posiciona-las corretamente;                                             ==>pesquisar melhor solução visual
-9)realizar testes
+-migracao do jogo twd puzzle para der
+
 
 
 + Tarefas realizadas:
