@@ -1,4 +1,4 @@
-thewalkingdeadgame
+Ordem e Progresso - Puzzle
 ==================
 
-jogo puzzle em javascript the walking dead
+jogo puzzle em javascript matar os politicos safados
