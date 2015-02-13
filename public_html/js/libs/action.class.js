@@ -26,14 +26,27 @@ YUI().use("node", function(Y) {
     subTela2 = Y.one("#subTela2");
     btnMatarZumbis.setStyle("background-image", "url('"+BGImagePath+BGImage3+"')");
 
+    
+    btnMatarPT.on("click", function(e) {
+      //
+    });
+    
+    btnMatarTucano.on("click", function(e) {
+      //  
+    });
+    
+    btnMatarGeral.on("click", function(e) {
+      //
+    });
+    
     btnInicioJogo2.on("click", function(e) {
         location.reload();
     });
 
     btnInicioJogo.on("click", function(e) {
         divPrincipal.setStyle("backgroundImage", "url('"+BGImagePath+BGImage4+"')");
-	    telaInicial.setStyle("display", "none");
-	    tela1.setStyle("display", "block");
+	telaInicial.setStyle("display", "none");
+	tela1.setStyle("display", "block");
     });
 
     btnArregarNoJogo.on("click", function(e) {
